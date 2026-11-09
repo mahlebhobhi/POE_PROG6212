@@ -1,0 +1,3 @@
+@model List<EnrollmentDto>
+@{var ev=ViewBag.Event as EventDto;ViewData["Title"]="Event enrolments";}
+<div class="eyebrow">Organiser · Entries</div><h1 class="section-title">Enrolments · @ev?.Name</h1><p class="text-secondary">@Model.Count participant entries recorded.</p><div class="card p-3 table-responsive"><table class="table"><thead><tr><th>Participant</th><th>Category</th><th>Enrolled</th><th>Status</th></tr></thead><tbody>@foreach(var e in Model){<tr><td>@e.ParticipantName</td><td>@e.Category</td><td>@e.EnrolledAtUtc.ToLocalTime().ToString("dd MMM yyyy")</td><td><span class="badge badge-open">Confirmed</span></td></tr>}</tbody></table></div>
